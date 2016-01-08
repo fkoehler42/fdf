@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   ft_strchr_index.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fkoehler <fkoehler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/07 17:56:28 by fkoehler          #+#    #+#             */
-/*   Updated: 2016/01/08 21:02:44 by fkoehler         ###   ########.fr       */
+/*   Created: 2015/12/19 13:01:01 by fkoehler          #+#    #+#             */
+/*   Updated: 2016/01/06 12:20:43 by fkoehler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#include "libft.h"
 
-# include "libft.h"
-# include <mlx.h>
-# include <fcntl.h>
-
-typedef	struct	s_dot
+int	ft_strchr_index(const char *s, int c)
 {
-	int			x;
-	int			y;
-	int			z;
-}				t_dot;
+	int	i;
 
-
-int		check_map(char *file);
-t_dot	**read_map(int fd, int nblines);
-t_dot	*store_struct(char *line, int len_save, int i);
-void	*init_window(char *title, t_dot **map, int nblines);
-
-#endif
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == (char)c)
+			return (i);
+		i++;
+	}
+	return (-1);
+}

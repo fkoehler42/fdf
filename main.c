@@ -6,7 +6,7 @@
 /*   By: fkoehler <fkoehler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 14:48:48 by fkoehler          #+#    #+#             */
-/*   Updated: 2016/01/08 12:22:31 by fkoehler         ###   ########.fr       */
+/*   Updated: 2016/01/08 21:02:39 by fkoehler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,10 @@
 
 int		main(int ac, char **av)
 {
-	void	*mlx;
-	void	*win;
 	int		fd;
 	int		nblines;
-	int		**intarray;
-//	int	i = 0;
-//	int j;
+	t_dot	**map;
+	void	*mlx;
 
 	if (ac != 2)
 		return (1);
@@ -28,23 +25,11 @@ int		main(int ac, char **av)
 		return (1);
 	if ((fd = open(av[1], O_RDONLY)) == -1)
 		return (1);
-	if (!(intarray = read_map(fd, nblines)))
+	if (!(map = read_map(fd, nblines)))
 		return (1);
-//	while (i < nblines)
-//	{
-//		j = 0;
-//		while (intarray[i][j])
-//		{
-//			ft_putnbr(intarray[i][j]);
-//			ft_putchar(' ');
-//			j++;
-//		}
-//		ft_putchar('\n');
-//		i++;
-//	}
 	mlx = mlx_init();
-	win = mlx_new_window(mlx, 800, 600, "Fenetre du turfu");
-	mlx_loop(mlx);
+	mlx_expose_hook(win, op(mlx), NULL);
+	init_window(av[1], map, nblines, mlx);
 	return (0);
 }
 
