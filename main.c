@@ -6,7 +6,7 @@
 /*   By: fkoehler <fkoehler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 14:48:48 by fkoehler          #+#    #+#             */
-/*   Updated: 2016/01/08 21:02:39 by fkoehler         ###   ########.fr       */
+/*   Updated: 2016/01/09 17:32:34 by fkoehler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,19 @@ int		main(int ac, char **av)
 {
 	int		fd;
 	int		nblines;
-	t_dot	**map;
-	void	*mlx;
+	t_win	*win;
 
+	win = NULL;
 	if (ac != 2)
 		return (1);
 	if ((nblines = check_map(av[1])) <= 0)
 		return (1);
 	if ((fd = open(av[1], O_RDONLY)) == -1)
 		return (1);
-	if (!(map = read_map(fd, nblines)))
+	if (!(win->map = read_map(fd, nblines)))
 		return (1);
-	mlx = mlx_init();
-	mlx_expose_hook(win, op(mlx), NULL);
-	init_window(av[1], map, nblines, mlx);
+	mlx_expose_hook(win->win, init_window, win);
+	mlx_loop(win->mlx);
 	return (0);
 }
 
