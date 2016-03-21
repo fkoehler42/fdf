@@ -6,13 +6,13 @@
 #    By: fkoehler <fkoehler@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/03/09 09:46:03 by fkoehler          #+#    #+#              #
-#    Updated: 2016/03/21 12:41:44 by fkoehler         ###   ########.fr        #
+#    Updated: 2016/03/21 15:47:35 by fkoehler         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 vpath %.c ./src
 
-SRC = check_and_store.c init_map.c main.c
+SRC = init.c main.c manage_file.c parse.c store.c
 
 NAME = fdf
 
