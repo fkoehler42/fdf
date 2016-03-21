@@ -6,57 +6,63 @@
 /*   By: fkoehler <fkoehler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 14:40:24 by fkoehler          #+#    #+#             */
-/*   Updated: 2016/03/21 17:02:42 by fkoehler         ###   ########.fr       */
+/*   Updated: 2016/03/21 21:08:10 by fkoehler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static int	store_dot(t_dot *dot, int fd)
+static int	store_dot(t_dot **map, char *line, int i, int j)
 {
-	char		*line;
 	int			x = 0;
-	static int	y = 1;
+	char		**tab;
 
-	line = NULL;
-	if ((get_next_line(fd, &line)) < 0)
+	if (!(tab = ft_strsplit(line, ' ')))
 	{
-		perror("fdf : ");
+		perror("fdf");
 		exit(EXIT_FAILURE);
 	}
-	while (line != NULL && ++x)
+	parse_dots(tab);
+	while (*tab)
 	{
-		ft_putendl(line);
-		if (*line != '-' && *line != '+' && *line != ' ' && !ft_isdigit(*line))
+		if (!(map[i] = (t_dot *)malloc(sizeof(t_dot))))
 		{
-			ft_putstr_fd("fdf : file not well formatted\n", 2);
+			perror("fdf");
 			exit(EXIT_FAILURE);
 		}
-		dot->x = x;
-		dot->y = y;
-		dot->z = atoi(line);
-		line = ft_strchr(++line, ' ');
-		++dot;
+		map[i]->x = x;
+		map[i]->y = j;
+		map[i]->z = atoi(*tab);
+		++tab;
+		i++;
+		x++;
 	}
-	free(line);
-	//dot = NULL;
-	y++;
-	return (0);
+	return (i);
 }
 
 int			store_map(t_fdf *fdf, char *file)
 {
 	int		i;
+	int		j;
 	int		fd;
+	char	*line;
 
 	i = 0;
+	j = 0;
+	line = NULL;
 	fd = open_file(file);
-	while (i < fdf->height)
+	if (!(fdf->map = (t_dot **)malloc(sizeof(t_dot *) * (fdf->nb_dots + 1))))
 	{
-		store_dot(fdf->map[i], fd);
-		i++;
+		perror("fdf");
+		exit(EXIT_FAILURE);
 	}
-	fdf->map[fdf->height] = NULL;
-	close(fd);
+	while (get_next_line(fd, &line) > 0)
+	{
+		i = store_dot(fdf->map, line, i, j);
+		j++;
+		free(line);
+	}
+	fdf->map[fdf->nb_dots] = NULL;
+	close_file(fd);
 	return (0);
 }

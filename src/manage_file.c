@@ -6,7 +6,7 @@
 /*   By: fkoehler <fkoehler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 14:44:43 by fkoehler          #+#    #+#             */
-/*   Updated: 2016/03/21 14:50:24 by fkoehler         ###   ########.fr       */
+/*   Updated: 2016/03/21 20:26:54 by fkoehler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		open_file(char *file)
 	fd = 0;
 	if ((fd = open(file, O_RDONLY)) < 0)
 	{
-		perror("fdf : ");
+		perror("fdf");
 		exit(EXIT_FAILURE);
 	}
 	return (fd);
@@ -29,7 +29,7 @@ int		close_file(int fd)
 {
 	if ((close(fd)) < 0)
 	{
-		perror("fdf : ");
+		perror("fdf");
 		exit(EXIT_FAILURE);
 	}
 	return (0);

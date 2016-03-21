@@ -5,12 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fkoehler <fkoehler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/07 17:56:28 by fkoehler          #+#    #+#             */
-<<<<<<< HEAD:src/fdf.h
-/*   Updated: 2016/03/21 13:14:07 by fkoehler         ###   ########.fr       */
-=======
-/*   Updated: 2016/01/08 21:02:44 by fkoehler         ###   ########.fr       */
->>>>>>> parent of 43fc92d... segfault:fdf.h
+/*   Created: 2016/03/21 18:01:40 by fkoehler          #+#    #+#             */
+/*   Updated: 2016/03/21 21:07:32 by fkoehler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,23 +26,22 @@ typedef	struct	s_dot
 	int			z;
 }				t_dot;
 
-<<<<<<< HEAD:src/fdf.h
 typedef struct	s_fdf
 {
+	int			nb_dots;
 	void		*mlx;
 	void		*win;
 	t_dot		**map;
 }				t_fdf;
-=======
->>>>>>> parent of 43fc92d... segfault:fdf.h
 
-int		check_map(char *file);
-t_dot	**read_map(int fd, int nblines);
-t_dot	*store_struct(char *line, int len_save, int i);
-<<<<<<< HEAD:src/fdf.h
-int		init_window(t_fdf *fdf);
-=======
-void	*init_window(char *title, t_dot **map, int nblines);
->>>>>>> parent of 43fc92d... segfault:fdf.h
+int				open_file(char *file);
+int				close_file(int fd);
+
+int				init_fdf_struct(t_fdf *fdf);
+
+int				parse_file(char *file);
+int				parse_dots(char **tab);
+int				store_map(t_fdf *fdf, char *file);
 
 #endif
+

@@ -6,28 +6,49 @@
 /*   By: fkoehler <fkoehler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 13:09:18 by fkoehler          #+#    #+#             */
-/*   Updated: 2016/03/21 15:53:29 by fkoehler         ###   ########.fr       */
+/*   Updated: 2016/03/21 21:08:15 by fkoehler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int		parse_file(t_fdf *fdf, char *file)
+int		parse_dots(char **tab)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (tab[i])
+	{
+		j = 0;
+		while (tab[i][j] == ' ' || tab[i][j] == '-' || tab[i][j] == '+')
+			j++;
+		if ((!tab[i][j]) || (!ft_isdigit(tab[i][j])))
+		{
+			ft_putstr_fd("fdf : ", 2);
+			ft_putstr_fd(tab[i], 2);
+			ft_putstr_fd(" : invalid value\n", 2);
+			exit(EXIT_FAILURE);
+		}
+		i++;
+	}
+	return (0);
+}
+
+int		parse_file(char *file)
 {
 	int		fd;
-	int		width;
+	int		nb_dots;
 	char	*line;
 
-	width  = 0;
+	nb_dots = 0;
 	line = NULL;
 	fd = open_file(file);
 	while ((get_next_line(fd, &line)) == 1)
 	{
-		if ((width = ft_countwords(line, ' ')) > fdf->width)
-			fdf->width = width;
-		fdf->height++;
+		nb_dots += ft_countwords(line, ' ');
 		free(line);
 	}
 	close_file(fd);
-	return (0);
+	return (nb_dots);
 }
