@@ -6,14 +6,13 @@
 /*   By: fkoehler <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 19:11:04 by fkoehler          #+#    #+#             */
-/*   Updated: 2016/01/08 19:51:20 by fkoehler         ###   ########.fr       */
+/*   Updated: 2016/03/14 21:34:30 by fkoehler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include "get_next_line.h"
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
@@ -27,7 +26,9 @@ typedef struct		s_list
 
 void				ft_putchar(char c);
 void				ft_putchar_fd(char c, int fd);
+void				ft_putnchar(char c, int n);
 void				ft_putstr(char const *s);
+void				ft_putnstr(char const *s, int n);
 void				ft_putstr_fd(char const *s, int fd);
 void				ft_print_array(char **array);
 void				ft_putendl(char const *s);
@@ -53,6 +54,7 @@ int					ft_isascii(int c);
 int					ft_isprint(int c);
 int					ft_isspace(int c);
 int					ft_atoi(const char *str);
+long				ft_atol(const char *str);
 char				*ft_itoa(int n);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
@@ -62,6 +64,7 @@ char				*ft_strcpy(char *dst, const char *src);
 char				*ft_strncpy(char *dst, const char *src, size_t len);
 char				*ft_strchr(const char *s, int c);
 int					ft_strchr_index(const char *s, int c);
+int					ft_strchr_count(const char *s, int c);
 char				*ft_strrchr(const char *s, int c);
 char				*ft_strcat(char *s1, const char *s2);
 char				*ft_strncat(char *s1, const char *s2, size_t n);
