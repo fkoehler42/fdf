@@ -6,7 +6,7 @@
 /*   By: fkoehler <fkoehler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 14:48:48 by fkoehler          #+#    #+#             */
-/*   Updated: 2016/03/21 20:41:44 by fkoehler         ###   ########.fr       */
+/*   Updated: 2016/03/22 13:23:02 by fkoehler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,11 @@ int		main(int ac, char **av)
 	init_fdf_struct(&fdf);
 	fdf.nb_dots = parse_file(av[1]);
 	store_map(&fdf, av[1]);
-	put_map(fdf.map);
+	get_map_size(&fdf);
+	//put_map(fdf.map);
+	init_window(&fdf, av[1]);
+	draw_dots(&fdf);
+	mlx_loop(fdf.mlx);
 	return (0);
 }
 

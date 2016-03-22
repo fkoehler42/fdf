@@ -6,7 +6,7 @@
 /*   By: fkoehler <fkoehler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 13:09:18 by fkoehler          #+#    #+#             */
-/*   Updated: 2016/03/21 21:08:15 by fkoehler         ###   ########.fr       */
+/*   Updated: 2016/03/22 13:30:21 by fkoehler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,10 @@ int		parse_dots(char **tab)
 	while (tab[i])
 	{
 		j = 0;
-		while (tab[i][j] == ' ' || tab[i][j] == '-' || tab[i][j] == '+')
+		while (tab[i][j] &&
+			(tab[i][j] == ' ' || tab[i][j] == '-' || tab[i][j] == '+'))
 			j++;
-		if ((!tab[i][j]) || (!ft_isdigit(tab[i][j])))
+		if (tab[i][j] && !ft_isdigit(tab[i][j]))
 		{
 			ft_putstr_fd("fdf : ", 2);
 			ft_putstr_fd(tab[i], 2);

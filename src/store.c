@@ -6,7 +6,7 @@
 /*   By: fkoehler <fkoehler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 14:40:24 by fkoehler          #+#    #+#             */
-/*   Updated: 2016/03/21 21:08:10 by fkoehler         ###   ########.fr       */
+/*   Updated: 2016/03/22 13:35:33 by fkoehler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@ static int	store_dot(t_dot **map, char *line, int i, int j)
 	parse_dots(tab);
 	while (*tab)
 	{
+		while (**tab && **tab == ' ')
+			++*tab;
+		if (!**tab && ++tab)
+			continue;
 		if (!(map[i] = (t_dot *)malloc(sizeof(t_dot))))
 		{
 			perror("fdf");
