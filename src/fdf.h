@@ -6,7 +6,7 @@
 /*   By: fkoehler <fkoehler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 18:01:40 by fkoehler          #+#    #+#             */
-/*   Updated: 2016/03/22 13:22:45 by fkoehler         ###   ########.fr       */
+/*   Updated: 2016/03/22 17:32:55 by fkoehler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int				parse_file(char *file);
 int				parse_dots(char **tab);
 int				store_map(t_fdf *fdf, char *file);
 
-int				draw_dots(t_fdf *fdf);
+int				draw_map(t_fdf *fdf);
 
 #endif
 
