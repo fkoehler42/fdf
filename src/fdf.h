@@ -6,7 +6,7 @@
 /*   By: fkoehler <fkoehler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 18:01:40 by fkoehler          #+#    #+#             */
-/*   Updated: 2016/03/22 17:32:55 by fkoehler         ###   ########.fr       */
+/*   Updated: 2016/03/23 18:13:12 by fkoehler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <libft.h>
 # include <get_next_line.h>
 # include <stdio.h>
+# include <math.h>
 # include "../minilibx_macos/mlx.h"
 # include <fcntl.h>
 
@@ -25,6 +26,16 @@ typedef	struct	s_dot
 	int			y;
 	int			z;
 }				t_dot;
+
+typedef struct	s_line
+{
+	int			x;
+	int			y;
+	int			xdiff;
+	int			ydiff;
+	int			color;
+	int			coeff;
+}				t_line;
 
 typedef struct	s_fdf
 {

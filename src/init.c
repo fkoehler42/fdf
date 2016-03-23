@@ -6,7 +6,7 @@
 /*   By: fkoehler <fkoehler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 14:35:59 by fkoehler          #+#    #+#             */
-/*   Updated: 2016/03/22 13:22:58 by fkoehler         ###   ########.fr       */
+/*   Updated: 2016/03/23 18:56:16 by fkoehler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int		get_map_size(t_fdf *fdf)
 			fdf->y_max = fdf->map[i]->y;
 		i++;
 	}
+	fdf->x_max++;
 	return (0);
 }
 
