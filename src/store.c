@@ -6,7 +6,7 @@
 /*   By: fkoehler <fkoehler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 14:40:24 by fkoehler          #+#    #+#             */
-/*   Updated: 2016/03/22 17:37:00 by fkoehler         ###   ########.fr       */
+/*   Updated: 2016/03/24 21:56:54 by fkoehler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,17 @@
 
 static int	store_dot(t_dot **map, char *line, int i, int j)
 {
-	int			x = 0;
+	int			x;
 	char		**tab;
+	char		**tab_save;
 
+	x = 0;
 	if (!(tab = ft_strsplit(line, ' ')))
 	{
 		perror("fdf");
 		exit(EXIT_FAILURE);
 	}
+	tab_save = tab;
 	parse_dots(tab);
 	while (*tab)
 	{
@@ -36,11 +39,12 @@ static int	store_dot(t_dot **map, char *line, int i, int j)
 		}
 		map[i]->x = x;
 		map[i]->y = j;
-		map[i]->z = atoi(*tab);
+		map[i]->z = ft_atoi(*tab);
 		++tab;
 		i++;
 		x++;
 	}
+	free_tab(tab_save);
 	return (i);
 }
 

@@ -6,12 +6,11 @@
 /*   By: fkoehler <fkoehler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 14:48:48 by fkoehler          #+#    #+#             */
-/*   Updated: 2016/03/24 16:58:37 by fkoehler         ###   ########.fr       */
+/*   Updated: 2016/03/24 20:17:44 by fkoehler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-#include <ft_printf.h>
 
 void	put_map(t_dot **map)
 {
@@ -19,7 +18,7 @@ void	put_map(t_dot **map)
 
 	while (map[i])
 	{
-		ft_printf("%d,%d,%d ", map[i]->x, map[i]->y, map[i]->z);
+		printf("%d,%d,%d ", map[i]->x, map[i]->y, map[i]->z);
 		i++;
 	}
 }
@@ -37,6 +36,7 @@ int		main(int ac, char **av)
 	//put_map(fdf.map);
 	init_window(&fdf, av[1]);
 	draw_map(&fdf);
+	mlx_key_hook(fdf.win, &key_press, &fdf);
 	mlx_loop(fdf.mlx);
 	return (0);
 }

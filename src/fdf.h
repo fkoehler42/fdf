@@ -6,7 +6,7 @@
 /*   By: fkoehler <fkoehler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 18:01:40 by fkoehler          #+#    #+#             */
-/*   Updated: 2016/03/24 17:22:47 by fkoehler         ###   ########.fr       */
+/*   Updated: 2016/03/24 21:21:47 by fkoehler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ int				parse_dots(char **tab);
 int				store_map(t_fdf *fdf, char *file);
 
 int				draw_map(t_fdf *fdf);
-
+int				free_map(t_dot **map);
+int				free_tab(char **tab);
+int				key_press(int keycode, t_fdf *fdf);
 #endif
 
