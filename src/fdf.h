@@ -6,7 +6,7 @@
 /*   By: fkoehler <fkoehler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 18:01:40 by fkoehler          #+#    #+#             */
-/*   Updated: 2016/03/23 18:13:12 by fkoehler         ###   ########.fr       */
+/*   Updated: 2016/03/24 17:22:47 by fkoehler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # include "../minilibx_macos/mlx.h"
 # include <fcntl.h>
 
+# define DEBUG printf("fichier %s, ligne %d\n", __FILE__, __LINE__)
+
 typedef	struct	s_dot
 {
 	int			x;
@@ -27,15 +29,14 @@ typedef	struct	s_dot
 	int			z;
 }				t_dot;
 
-typedef struct	s_line
+typedef struct	s_l
 {
 	int			x;
 	int			y;
-	int			xdiff;
-	int			ydiff;
+	int			xd;
+	int			yd;
 	int			color;
-	int			coeff;
-}				t_line;
+}				t_l;
 
 typedef struct	s_fdf
 {
@@ -43,14 +44,19 @@ typedef struct	s_fdf
 	void		*win;
 	t_dot		**map;
 	int			nb_dots;
-	int			x_max;
-	int			y_max;
+	int			col;
+	int			lines;
+	int			x_pos;
+	int			y_pos;
+	int			height;
+	int			zoom;
 }				t_fdf;
 
 int				open_file(char *file);
 int				close_file(int fd);
 
 int				init_fdf_struct(t_fdf *fdf);
+int				init_line_struct(t_l *line);
 int				init_window(t_fdf *fdf, char *file);
 int				get_map_size(t_fdf *fdf);
 

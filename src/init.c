@@ -6,7 +6,7 @@
 /*   By: fkoehler <fkoehler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 14:35:59 by fkoehler          #+#    #+#             */
-/*   Updated: 2016/03/23 18:56:16 by fkoehler         ###   ########.fr       */
+/*   Updated: 2016/03/24 17:24:36 by fkoehler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,25 @@ int		get_map_size(t_fdf *fdf)
 	i = 0;
 	while (fdf->map[i])
 	{
-		if (fdf->map[i]->x > fdf->x_max)
-			fdf->x_max = fdf->map[i]->x;
-		if (fdf->map[i]->y > fdf->y_max)
-			fdf->y_max = fdf->map[i]->y;
+		if (fdf->map[i]->x > fdf->col)
+			fdf->col = fdf->map[i]->x;
+		if (fdf->map[i]->y > fdf->lines)
+			fdf->lines = fdf->map[i]->y;
 		i++;
 	}
-	fdf->x_max++;
+	fdf->col++;
+	fdf->lines++;
+	fdf->zoom = fdf->col > fdf->lines ? 1200 / fdf->col : 800 / fdf->lines;
+	return (0);
+}
+
+int		init_line_struct(t_l *line)
+{
+	line->x = 0;
+	line->y = 0;
+	line->xd = 0;
+	line->yd = 0;
+	line->color = 0;
 	return (0);
 }
 
@@ -50,7 +62,11 @@ int		init_fdf_struct(t_fdf *fdf)
 	fdf->win = NULL;
 	fdf->map = NULL;
 	fdf->nb_dots = 0;
-	fdf->x_max = 0;
-	fdf->y_max = 0;
+	fdf->col = 0;
+	fdf->lines = 0;
+	fdf->x_pos = 200;
+	fdf->y_pos = 200;
+	fdf->height = -3;
+	fdf->zoom = 0;
 	return (0);
 }
