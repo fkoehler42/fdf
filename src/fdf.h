@@ -6,7 +6,7 @@
 /*   By: fkoehler <fkoehler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 18:01:40 by fkoehler          #+#    #+#             */
-/*   Updated: 2016/03/24 21:21:47 by fkoehler         ###   ########.fr       */
+/*   Updated: 2016/03/25 20:23:17 by fkoehler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,16 @@ typedef struct	s_fdf
 	int			y_pos;
 	int			height;
 	int			zoom;
+	int			color1;
+	int			color2;
+	int			color3;
 }				t_fdf;
 
 int				open_file(char *file);
 int				close_file(int fd);
 
 int				init_fdf_struct(t_fdf *fdf);
+int				reset_fdf_struct(t_fdf *fdf);
 int				init_line_struct(t_l *line);
 int				init_window(t_fdf *fdf, char *file);
 int				get_map_size(t_fdf *fdf);
@@ -68,5 +72,7 @@ int				draw_map(t_fdf *fdf);
 int				free_map(t_dot **map);
 int				free_tab(char **tab);
 int				key_press(int keycode, t_fdf *fdf);
+int				change_colorset(t_fdf *fdf, int colorset);
+
 #endif
 

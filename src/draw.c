@@ -6,7 +6,7 @@
 /*   By: fkoehler <fkoehler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 12:38:52 by fkoehler          #+#    #+#             */
-/*   Updated: 2016/03/24 18:21:34 by fkoehler         ###   ########.fr       */
+/*   Updated: 2016/03/25 19:46:39 by fkoehler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static int	draw_line(t_fdf *fdf, t_l *l)
 		{
 			x = l->x + (l->xd * factor);
 			y = l->y + (l->yd * factor);
-			mlx_pixel_put(fdf->mlx, fdf->win, x, y, 0xFFFF00);
+			mlx_pixel_put(fdf->mlx, fdf->win, x, y, fdf->color3);
 			factor += 1 / (sqrt((l->xd * l->xd) + (l->yd * l->yd)));
 		}
 	}
@@ -58,7 +58,7 @@ static int	set_line_struct(t_fdf *fdf, t_l *l, t_dot* dot1, t_dot *dot2)
 	l->y = (dot1->y * fdf->zoom) + (dot1->z * fdf->height) + fdf->y_pos;
 	l->xd = ((dot2->x * fdf->zoom) + (dot2->z * fdf->height) + fdf->x_pos) - l->x;
 	l->yd = ((dot2->y * fdf->zoom) + (dot2->z * fdf->height) + fdf->y_pos) - l->y;
-	l->color = dot1->z == 0 ? 0xFF0000 : 0x00FF00;
+	l->color = dot1->z == 0 ? fdf->color1 : fdf->color2;
 	return (0);
 }
 

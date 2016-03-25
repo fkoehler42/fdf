@@ -6,7 +6,7 @@
 /*   By: fkoehler <fkoehler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 14:35:59 by fkoehler          #+#    #+#             */
-/*   Updated: 2016/03/24 17:24:36 by fkoehler         ###   ########.fr       */
+/*   Updated: 2016/03/25 20:02:23 by fkoehler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,18 @@ int		init_window(t_fdf *fdf, char *file)
 	return (0);
 }
 
+int		reset_fdf_struct(t_fdf *fdf)
+{
+	fdf->x_pos = 200;
+	fdf->y_pos = 200;
+	fdf->height = -3;
+	fdf->zoom = fdf->col > fdf->lines ? 1200 / fdf->col : 800 / fdf->lines;
+	fdf->color1 = 0xFFFFFF;
+	fdf->color2 = 0xFFFFFF;
+	fdf->color3 = 0xFFFFFF;
+	return (0);
+}
+
 int		init_fdf_struct(t_fdf *fdf)
 {
 	fdf->mlx = NULL;
@@ -68,5 +80,8 @@ int		init_fdf_struct(t_fdf *fdf)
 	fdf->y_pos = 200;
 	fdf->height = -3;
 	fdf->zoom = 0;
+	fdf->color1 = 0xFFFFFF;
+	fdf->color2 = 0xFFFFFF;
+	fdf->color3 = 0xFFFFFF;
 	return (0);
 }

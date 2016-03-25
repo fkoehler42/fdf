@@ -6,13 +6,14 @@
 #    By: fkoehler <fkoehler@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/03/09 09:46:03 by fkoehler          #+#    #+#              #
-#    Updated: 2016/03/24 21:42:28 by fkoehler         ###   ########.fr        #
+#    Updated: 2016/03/25 20:04:38 by fkoehler         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 vpath %.c ./src
 
-SRC = draw.c free.c init.c key_press.c main.c manage_file.c parse.c store.c
+SRC = colorset.c draw.c free.c init.c key_press.c main.c manage_file.c parse.c \
+	  store.c
 
 NAME = fdf
 
