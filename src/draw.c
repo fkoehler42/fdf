@@ -6,7 +6,7 @@
 /*   By: fkoehler <fkoehler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 12:38:52 by fkoehler          #+#    #+#             */
-/*   Updated: 2016/03/25 19:46:39 by fkoehler         ###   ########.fr       */
+/*   Updated: 2016/03/29 14:05:02 by fkoehler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,6 @@ int			draw_map(t_fdf *fdf)
 		}
 		i++;
 	}
+	draw_buttons(fdf);
 	return (0);
 }

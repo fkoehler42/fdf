@@ -6,7 +6,7 @@
 /*   By: fkoehler <fkoehler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 14:48:48 by fkoehler          #+#    #+#             */
-/*   Updated: 2016/03/24 20:17:44 by fkoehler         ###   ########.fr       */
+/*   Updated: 2016/03/29 14:41:15 by fkoehler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int		main(int ac, char **av)
 	init_window(&fdf, av[1]);
 	draw_map(&fdf);
 	mlx_key_hook(fdf.win, &key_press, &fdf);
+	mlx_mouse_hook(fdf.win, &mouse_press, &fdf);
 	mlx_loop(fdf.mlx);
 	return (0);
 }
