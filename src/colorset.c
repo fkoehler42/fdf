@@ -6,7 +6,7 @@
 /*   By: fkoehler <fkoehler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/25 19:55:36 by fkoehler          #+#    #+#             */
-/*   Updated: 2016/03/29 16:08:40 by fkoehler         ###   ########.fr       */
+/*   Updated: 2016/03/29 21:12:59 by fkoehler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,18 @@ int			draw_buttons(t_fdf *fdf)
 		draw_colorset_buttons(fdf, x, y);
 		x += 50;
 	}
+	return (0);
+}
+
+int			multicolor_display(t_fdf *fdf)
+{
+	static int	color = 0;
+	mlx_clear_window(fdf->mlx, fdf->win);
+	fdf->color1 = color;
+	fdf->color2 = color;
+	fdf->color3 = color;
+	draw_map(fdf);
+	color += 2099648;
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: fkoehler <fkoehler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 18:01:40 by fkoehler          #+#    #+#             */
-/*   Updated: 2016/03/29 15:41:01 by fkoehler         ###   ########.fr       */
+/*   Updated: 2016/03/29 19:04:36 by fkoehler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ int				free_tab(char **tab);
 int				key_press(int keycode, t_fdf *fdf);
 int				mouse_press(int button, int x, int y, t_fdf *fdf);
 int				change_colorset(t_fdf *fdf, int colorset);
+int				multicolor_display(t_fdf *fdf);
 
 #endif
 

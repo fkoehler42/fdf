@@ -6,7 +6,7 @@
 /*   By: fkoehler <fkoehler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 15:51:16 by fkoehler          #+#    #+#             */
-/*   Updated: 2016/03/29 16:20:49 by fkoehler         ###   ########.fr       */
+/*   Updated: 2016/03/29 21:09:53 by fkoehler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 int		mouse_press(int button, int x, int y, t_fdf *fdf)
 {
-	if (button == 1 && y > 19 && y < 51)
+	printf("button %d\n", button);
+	if (button == 5)
+		multicolor_display(fdf);
+	else if (button == 1 && y > 19 && y < 51)
 	{
 		mlx_clear_window(fdf->mlx, fdf->win);
 		if (x > 19 && x < 60)
