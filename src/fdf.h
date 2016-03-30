@@ -6,7 +6,7 @@
 /*   By: fkoehler <fkoehler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 18:01:40 by fkoehler          #+#    #+#             */
-/*   Updated: 2016/03/30 12:24:31 by fkoehler         ###   ########.fr       */
+/*   Updated: 2016/03/30 18:21:07 by fkoehler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,8 @@
 # include <get_next_line.h>
 # include <stdio.h>
 # include <math.h>
-# include "../minilibx_macos/mlx.h"
+# include <mlx.h>
 # include <fcntl.h>
-
-# define DEBUG printf("fichier %s, ligne %d\n", __FILE__, __LINE__)
 
 typedef	struct	s_dot
 {
@@ -48,7 +46,7 @@ typedef struct	s_fdf
 	int			lines;
 	int			x_pos;
 	int			y_pos;
-	int			height;
+	float		height;
 	int			zoom;
 	int			color1;
 	int			color2;
@@ -78,4 +76,3 @@ int				change_colorset(t_fdf *fdf, int colorset);
 int				multicolor_display(t_fdf *fdf);
 
 #endif
-

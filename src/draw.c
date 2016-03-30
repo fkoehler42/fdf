@@ -6,7 +6,7 @@
 /*   By: fkoehler <fkoehler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 12:38:52 by fkoehler          #+#    #+#             */
-/*   Updated: 2016/03/30 12:23:39 by fkoehler         ###   ########.fr       */
+/*   Updated: 2016/03/30 18:23:16 by fkoehler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,14 @@ static int	draw_line(t_fdf *fdf, t_l *l)
 	return (0);
 }
 
-static int	set_line_struct(t_fdf *fdf, t_l *l, t_dot* dot1, t_dot *dot2)
+static int	set_line_struct(t_fdf *fdf, t_l *l, t_dot *dot1, t_dot *dot2)
 {
 	l->x = (dot1->x * fdf->zoom) + (dot1->z * fdf->height) + fdf->x_pos;
 	l->y = (dot1->y * fdf->zoom) + (dot1->z * fdf->height) + fdf->y_pos;
-	l->xd = ((dot2->x * fdf->zoom) + (dot2->z * fdf->height) + fdf->x_pos) - l->x;
-	l->yd = ((dot2->y * fdf->zoom) + (dot2->z * fdf->height) + fdf->y_pos) - l->y;
+	l->xd = ((dot2->x * fdf->zoom) + (dot2->z * fdf->height) + fdf->x_pos)
+			- l->x;
+	l->yd = ((dot2->y * fdf->zoom) + (dot2->z * fdf->height) + fdf->y_pos)
+			- l->y;
 	l->color = dot1->z == 0 ? fdf->color1 : fdf->color2;
 	return (0);
 }

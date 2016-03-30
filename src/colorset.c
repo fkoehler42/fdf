@@ -6,7 +6,7 @@
 /*   By: fkoehler <fkoehler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/25 19:55:36 by fkoehler          #+#    #+#             */
-/*   Updated: 2016/03/29 21:12:59 by fkoehler         ###   ########.fr       */
+/*   Updated: 2016/03/30 18:21:43 by fkoehler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	draw_colorset_buttons(t_fdf *fdf, int x, int y)
 	else if (x == 70)
 		color = 0x00FF00;
 	else if (x == 120)
-		color = 0x0000FF;
+		color = 0x0038FF;
 	else
 		color = 0x660099;
 	while (y < 50)
@@ -57,6 +57,7 @@ int			draw_buttons(t_fdf *fdf)
 int			multicolor_display(t_fdf *fdf)
 {
 	static int	color = 0;
+
 	mlx_clear_window(fdf->mlx, fdf->win);
 	fdf->color1 = color;
 	fdf->color2 = color;
@@ -82,9 +83,9 @@ int			change_colorset(t_fdf *fdf, int colorset)
 	}
 	else if (colorset == 2)
 	{
-		fdf->color1 = 0x0000FF;
-		fdf->color2 = 0xFF0000;
-		fdf->color3 = 0xFFFFFF;
+		fdf->color1 = 0x0038FF;
+		fdf->color2 = 0x00A433;
+		fdf->color3 = 0x562B00;
 	}
 	else if (colorset == 3)
 	{
