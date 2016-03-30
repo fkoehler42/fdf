@@ -6,23 +6,17 @@
 /*   By: fkoehler <fkoehler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 12:38:52 by fkoehler          #+#    #+#             */
-/*   Updated: 2016/03/29 14:05:02 by fkoehler         ###   ########.fr       */
+/*   Updated: 2016/03/30 12:23:39 by fkoehler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static int	draw_line(t_fdf *fdf, t_l *l)
+static int	draw_simple_line(t_fdf *fdf, t_l *l)
 {
-	int		x;
-	int		y;
-	int		i;
-	double	factor;
+	int	i;
 
 	i = 0;
-	x = 0;
-	y = 0;
-	factor = 0.0;
 	if (l->xd == 0)
 	{
 		while (i != l->yd)
@@ -39,6 +33,20 @@ static int	draw_line(t_fdf *fdf, t_l *l)
 			i < l->xd ? i++ : i--;
 		}
 	}
+	return (0);
+}
+
+static int	draw_line(t_fdf *fdf, t_l *l)
+{
+	int		x;
+	int		y;
+	double	factor;
+
+	x = 0;
+	y = 0;
+	factor = 0.0;
+	if (l->xd == 0 || l->yd == 0)
+		draw_simple_line(fdf, l);
 	else
 	{
 		while (factor <= 1)
