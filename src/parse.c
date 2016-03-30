@@ -6,7 +6,7 @@
 /*   By: fkoehler <fkoehler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 13:09:18 by fkoehler          #+#    #+#             */
-/*   Updated: 2016/03/30 12:53:29 by fkoehler         ###   ########.fr       */
+/*   Updated: 2016/03/30 14:24:17 by fkoehler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,10 @@ int		parse_file(char *file)
 	int		nb_col;
 	char	*line;
 
-	nb_dots = 0;
 	line = NULL;
 	fd = open_file(file);
 	if (get_next_line(fd, &line) == 0)
-	{
-		exit(EXIT_FAILURE);
-	}
+		return (0);
 	nb_col = ft_countwords(line, ' ');
 	nb_dots = nb_col;
 	free(line);

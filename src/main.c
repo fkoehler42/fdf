@@ -6,7 +6,7 @@
 /*   By: fkoehler <fkoehler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 14:48:48 by fkoehler          #+#    #+#             */
-/*   Updated: 2016/03/30 12:56:18 by fkoehler         ###   ########.fr       */
+/*   Updated: 2016/03/30 14:19:47 by fkoehler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,13 @@ int		main(int ac, char **av)
 	if (ac != 2)
 		return (1);
 	init_fdf_struct(&fdf);
-	fdf.nb_dots = parse_file(av[1]);
-	printf("%d\n", fdf.nb_dots);
+	if (!(fdf.nb_dots = parse_file(av[1])))
+	{
+		ft_putstr_fd("fdf: ", 2);
+		ft_putstr_fd(av[1], 2);
+		ft_putstr_fd(" is not a valid file\n", 2);
+		return (1);
+	}
 	store_map(&fdf, av[1]);
 	get_map_size(&fdf);
 	//put_map(fdf.map);
