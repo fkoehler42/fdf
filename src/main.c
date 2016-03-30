@@ -6,11 +6,17 @@
 /*   By: fkoehler <fkoehler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 14:48:48 by fkoehler          #+#    #+#             */
-/*   Updated: 2016/03/30 18:22:32 by fkoehler         ###   ########.fr       */
+/*   Updated: 2016/03/30 19:44:50 by fkoehler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+void	error_exit(void)
+{
+	perror("fdf");
+	exit(EXIT_FAILURE);
+}
 
 int		main(int ac, char **av)
 {

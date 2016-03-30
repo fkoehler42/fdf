@@ -6,7 +6,7 @@
 /*   By: fkoehler <fkoehler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 18:01:40 by fkoehler          #+#    #+#             */
-/*   Updated: 2016/03/30 18:21:07 by fkoehler         ###   ########.fr       */
+/*   Updated: 2016/03/30 19:45:26 by fkoehler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ typedef struct	s_fdf
 
 int				open_file(char *file);
 int				close_file(int fd);
+void			error_exit(void);
 
 int				init_fdf_struct(t_fdf *fdf);
 int				reset_fdf_struct(t_fdf *fdf);
